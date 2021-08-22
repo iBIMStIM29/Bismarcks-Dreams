@@ -1,0 +1,26 @@
+add_namespace = baden
+
+country_event = {
+	id = baden.5
+	title = baden.5.t
+	desc = baden.5.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = no
+	fire_only_once = yes
+	trigger = {
+	  tag = BAD
+		AND = {
+         date > 1936.2.1
+	}
+}
+
+mean_time_to_happen = { days = 5 }
+
+	option = {
+		name = "Meine Güte!"
+		ai_chance = { factor = 1}
+		news_event = {
+                id = germany_news.3
+             }
+	}
+}

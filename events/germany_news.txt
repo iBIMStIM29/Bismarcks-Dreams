@@ -1,0 +1,126 @@
+﻿###########################
+# World News Events
+###########################
+# By many many people
+
+
+add_namespace = germany_news
+# Saar independence
+news_event = {
+	id = germany_news.2
+	title = worldnews.2.t
+	desc = worldnews.2.d
+	picture = GFX_news_event_brigade_war
+	
+	major = yes
+
+	fire_only_once = yes # Optional : if set to "yes" the event will never occur more than once
+
+	is_triggered_only = yes # Optional : if set to "yes" the event will only occur by command
+
+	
+	trigger = {
+		
+		BAD = { has_war_with = KAR }
+		
+	}
+	
+	immediate = {
+		
+	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = news.140.a
+		
+	}
+	
+}
+
+# Wagner speach
+news_event = {
+	id = germany_news.3
+	title = worldnews.3.t
+	desc = worldnews.3.d
+	picture = GFX_news_event_wagner_speech
+	
+	major = yes
+
+	fire_only_once = yes # Optional : if set to "yes" the event will never occur more than once
+
+	is_triggered_only = yes # Optional : if set to "yes" the event will only occur by command
+
+	
+	trigger = {
+		
+		
+		
+	}
+	
+	immediate = {
+		
+	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = news.140.a
+		
+	}
+	
+}
+
+
+
+
+news_event = {
+	id = worldnews.3
+	immediate = { log = "[GetDateText]: [Root.GetName]: event worldnews.2 FROM = [From.GetName]" }
+	title = worldnews.2.t
+	desc = {
+		text = worldnews.2.swiwin
+		trigger = {
+			
+		}
+	}
+	
+	picture = GFX_news_event_Saar_Independence
+
+	major = yes
+
+	is_triggered_only = yes
+
+	
+
+	show_major = {
+		regional_europe_news = yes
+	}
+
+	immediate = { # Optional : all the following will occur once the event occurs
+		if = {
+			limit = {
+				tag = KAR
+				has_government = left_liberalism
+				
+			}
+			
+		}
+		
+	}
+
+	option = {
+		name = worldnews.2.a
+		trigger = {
+			
+		}
+	}
+
+	
+}
+
+

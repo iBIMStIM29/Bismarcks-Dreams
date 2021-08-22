@@ -1,0 +1,632 @@
+###########################
+# Prussia Events
+###########################
+
+add_namespace = bavaria
+
+# Prussia in 1936
+country_event = {
+	id = bavaria.1
+	title = bavaria.1.t
+	desc = bavaria.1.d
+	picture = GFX_report_event_Bavaria
+
+  fire_only_once = yes
+	trigger = {
+	    
+        }
+
+	immediate = {}
+
+	option = {
+		name = "Show me the lore."
+		add_political_power = 200
+		}
+
+
+	}
+
+country_event = {
+	id = bavaria.2
+	title = bavaria.2.t
+	desc = bavaria.2.d
+	picture = GFX_report_event_Eisner_Death
+    is_triggered_only = yes
+    fire_only_once = no
+	trigger = {
+	    
+        }
+
+	immediate = {}
+
+	option = {
+		name = "...Kurt Eisner died 30 minutes ago."
+		set_country_flag = super_event_japanese_inteverntion
+		kill_country_leader = yes
+	    set_country_flag = election
+		add_stability = 0.-15
+		}
+
+	option = {
+		name = "...Kurt Eisner current health is stable."
+		add_stability = 0.10
+		set_country_flag = eisner_survived
+		}
+
+
+	}
+
+country_event = {
+	id = bavaria.3
+	title = bavaria.3.t
+	desc = bavaria.3.d
+	picture = GFX_report_event_shoot
+	is_triggered_only = no
+	fire_only_once = yes
+	trigger = {
+	  tag = BAY
+		AND = {
+         date > 1936.2.1
+	}
+}
+
+mean_time_to_happen = { days = 5 }
+
+	
+
+	option = {
+		name = "Is his health stable?"
+		ai_chance = { factor = 1}
+		country_event = bavaria.2
+		add_stability = 0.-20
+	}
+}
+
+country_event = {
+	id = bavaria.4
+	title = bavaria.4.t
+	desc = bavaria.4.d
+	picture = GFX_report_event_Eisner_Death
+    is_triggered_only = no
+    fire_only_once = yes
+	trigger = {
+
+		tag = BAY
+		AND = {
+         date > 1936.2.25
+		 has_country_flag = election
+	}
+	    
+        }  
+
+	mean_time_to_happen = { days = 5 }
+	immediate = {}
+
+	option = {
+		name = "Let's prepare"
+		
+		}
+
+
+	}	
+
+	country_event = {
+	id = bavaria.5
+	title = bavaria.5.t
+	desc = bavaria.5.d
+	picture = GFX_report_event_Eisner_Death
+    is_triggered_only = no
+    fire_only_once = yes
+	trigger = {
+
+		tag = BAY
+		AND = {
+         date > 1936.3.25
+		 has_country_flag = election
+	}
+	    
+        }  
+
+	mean_time_to_happen = { days = 5 }
+	immediate = {}
+
+	option = {
+		name = "KPB"
+		set_politics = {
+	    ruling_party = communism
+        
+         }
+	
+		
+		
+		}
+
+	option = {
+		name = "Social Democrats"
+		
+		
+		
+		}
+
+	option = {
+		name = "NPB"
+		set_politics = {
+	    ruling_party = fascism
+	
+         }
+		 set_country_flag = choice_made
+		
+		
+		}
+
+	option = {
+		name = "BVP"
+		set_politics = {
+	    ruling_party = neutrality
+        
+         }
+		
+		}
+
+
+	}	
+
+	country_event = {
+	id = bavaria.6
+	title = bavaria.6.t
+	desc = bavaria.6.d
+	picture = GFX_report_event_Eisner_Death
+    is_triggered_only = no
+    fire_only_once = yes
+	trigger = {
+
+		tag = BAY
+		AND = {
+         date > 1936.3.25
+		 has_country_flag = choice_made
+		 
+	}
+	    
+        }  
+
+	mean_time_to_happen = { days = 5 }
+	immediate = {}
+
+	option = {
+		name = "For a strong bavaria"
+		EMS = { 
+                set_state_owner = 54
+		}
+		set_country_flag = ems
+
+		hidden_effect = {
+			delete_unit_template_and_units = { division_template = "Infanterie Division" }
+		    delete_unit_template_and_units = { division_template = "Alpenjäger Division" }
+			delete_unit_template_and_units = { division_template = "Schnelle Division" }
+
+			
+				division_template = {
+		name = "Genossen Division"
+		is_locked = no
+		division_names_group = AUS_INF_01
+		priority = 0
+		template_counter = 0
+		regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 0 y = 3 }
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+				infantry = { x = 1 y = 3 }
+		}
+		support = {
+				military_police = { x = 0 y = 0 }
+		}
+	}
+
+	69 = {
+	create_unit = {
+		division = "name = \" Brigade München\" division_template = \"Genossen Division\" start_experience_factor = 0.2 start_equipment_factor = 1.0"
+		owner = BAY
+		prioritize_location = 692
+	}
+
+	}
+
+	69 = {
+	create_unit = {
+		division = "name = \" Brigade München-Ost\" division_template = \"Genossen Division\" start_experience_factor = 0.2 start_equipment_factor = 1.0"
+		owner = BAY
+		prioritize_location = 692
+	}
+
+	}
+
+	69 = {
+	create_unit = {
+		division = "name = \" Brigade München-West\" division_template = \"Genossen Division\" start_experience_factor = 0.2 start_equipment_factor = 1.0"
+		owner = BAY
+		prioritize_location = 692
+	}
+
+	}
+
+	69 = {
+	create_unit = {
+		division = "name = \" Brigade Regensburg\" division_template = \"Genossen Division\" start_experience_factor = 0.2 start_equipment_factor = 1.0"
+		owner = BAY
+		prioritize_location = 692
+	}
+
+	}
+
+	69 = {
+	create_unit = {
+		division = "name = \" \" division_template = \"Genossen Division\" start_experience_factor = 0.2 start_equipment_factor = 1.0"
+		owner = BAY
+		prioritize_location = 692
+	}
+
+	}
+
+	69 = {
+	create_unit = {
+		division = "name = \" \" division_template = \"Genossen Division\" start_experience_factor = 0.2 start_equipment_factor = 1.0"
+		owner = BAY
+		prioritize_location = 692
+	}
+
+	}
+
+	69 = {
+	create_unit = {
+		division = "name = \" \" division_template = \"Genossen Division\" start_experience_factor = 0.2 start_equipment_factor = 1.0"
+		owner = BAY
+		prioritize_location = 692
+	}
+
+	}
+
+	69 = {
+	create_unit = {
+		division = "name = \" \" division_template = \"Genossen Division\" start_experience_factor = 0.2 start_equipment_factor = 1.0"
+		owner = BAY
+		prioritize_location = 692
+	}
+
+	}
+
+	69 = {
+	create_unit = {
+		division = "name = \" \" division_template = \"Genossen Division\" start_experience_factor = 0.2 start_equipment_factor = 1.0"
+		owner = BAY
+		prioritize_location = 692
+	}
+
+	}
+
+	69 = {
+	create_unit = {
+		division = "name = \" \" division_template = \"Genossen Division\" start_experience_factor = 0.2 start_equipment_factor = 1.0"
+		owner = BAY
+		prioritize_location = 692
+	}
+
+	}
+
+	69 = {
+	create_unit = {
+		division = "name = \" \" division_template = \"Genossen Division\" start_experience_factor = 0.2 start_equipment_factor = 1.0"
+		owner = BAY
+		prioritize_location = 692
+	}
+
+	}
+
+	69 = {
+	create_unit = {
+		division = "name = \" \" division_template = \"Genossen Division\" start_experience_factor = 0.2 start_equipment_factor = 1.0"
+		owner = BAY
+		prioritize_location = 692
+	}
+
+	}
+			
+
+	}
+	}
+
+	}	
+
+	country_event = {
+	id = bavaria.7
+	title = bavaria.7.t
+	desc = bavaria.7.d
+	picture = GFX_report_event_Eisner_Death
+    is_triggered_only = no
+    fire_only_once = yes
+	trigger = {
+
+		tag = BAY
+		AND = {
+         date > 1936.5.5
+		 has_country_flag = ems
+	}
+	    
+        }  
+
+	mean_time_to_happen = { days = 5 }
+	immediate = {}
+
+	option = {
+		name = "For a strong bavaria"
+		EMS = { change_tag_from = BAY }
+
+	
+
+
+	}
+	option = {
+		name = "Stand by the republic"
+		
+
+	
+
+
+	  }
+	}	
+
+	country_event = {
+	id = bavaria.8
+	title = bavaria.8.t
+	desc = bavaria.8.d
+	picture = GFX_report_event_Eisner_Death
+    is_triggered_only = no
+    fire_only_once = yes
+	trigger = {
+
+		tag = BAY
+		AND = {
+         date > 1936.20.5
+		 has_country_flag = ems
+	}
+	    
+        }  
+
+	mean_time_to_happen = { days = 5 }
+	immediate = {}
+
+	option = {
+		name = "Democracy for ever."
+			declare_war_on = { type = annex_everything    target = EMS }
+			set_country_flag = super_event_bavarian_war
+
+	}
+	
+   } 	
+
+   country_event = {
+	id = bavaria.9
+	title = bavaria.9.t
+	desc = bavaria.9.d
+	picture = GFX_report_event_tee
+    is_triggered_only = yes
+	trigger = {
+	}
+	    
+        
+
+
+	immediate = {}
+
+	option = {
+		name = "Let one of them in."
+
+	}
+	
+   } 	
+
+   country_event = {
+	id = bavaria.10
+	title = bavaria.10.t
+	desc = bavaria.10.d
+	picture = GFX_report_event_football
+    is_triggered_only = yes
+	trigger = {
+	}
+	    
+        
+
+
+	immediate = {}
+
+	option = {
+		name = "Next time Munich."
+
+	}
+	
+   } 	
+
+
+   country_event = {
+	id = bavaria.11
+	title = bavaria.11.t
+	desc = bavaria.11.d
+	picture = GFX_report_event_oktoberfest
+    is_triggered_only = yes
+	trigger = {
+	}
+	    
+        
+
+
+	immediate = {}
+
+	option = {
+		name = "Oh man, it's only football."
+
+	}
+	
+   } 	
+
+   country_event = {
+	id = bavaria.12
+	title = bavaria.12.t
+	desc = bavaria.12.d
+	picture = GFX_report_event_oktoberfest
+    is_triggered_only = yes
+	trigger = {
+	}
+	    
+        
+
+
+	immediate = {}
+
+	option = {
+		name = "Oh man, it's only football."
+		add_ideas = {
+	       BAY_saxony
+	
+        }
+
+	}
+	
+   } 	
+
+   country_event = {
+	id = bavaria.14
+	title = bavaria.14.t
+	desc = bavaria.14.d
+	picture = GFX_report_event_auer
+    is_triggered_only = yes
+	trigger = {
+	}
+	    
+        
+
+
+	immediate = {}
+
+	option = {
+		name = "I don't have any hopes."
+		swap_ideas = {
+              remove_idea = BAY_front
+              add_idea = BAY_front_2
+        }
+
+	}
+	
+   } 	
+
+   country_event = {
+	id = bavaria.17
+	title = bavaria.17.t
+	desc = bavaria.17.d
+	picture = GFX_report_event_parliament
+    is_triggered_only = yes
+	trigger = {
+	}
+	
+	mean_time_to_happen = {
+		days = 5
+	}
+
+	immediate = {}
+
+	option = {
+		name = "I don't have any hopes."
+		set_country_flag = parliamnet
+		activate_mission = BAY_secure_power
+	}
+	
+   } 	
+
+   country_event = {
+	id = bavaria.15
+	title = bavaria.14.t
+	desc = bavaria.15.d
+	picture = GFX_report_event_oktoberfest
+    is_triggered_only = yes
+	trigger = {
+	}
+	    
+        
+
+
+	immediate = {}
+
+	option = {
+		name = "Oh man, it's only football."
+		swap_ideas = {
+              remove_idea = BAY_front_2
+              add_idea = BAY_front_3
+        }
+
+		news_event = {
+                id = bay.1
+             }
+
+	}
+	
+   } 	
+
+   country_event = {
+	id = bavaria.13
+	title = bavaria.13.t
+	desc = bavaria.13.d
+	picture = GFX_report_event_oktoberfest
+    is_triggered_only = yes
+	trigger = {
+	}
+	    
+        
+
+
+	immediate = {}
+
+	option = {
+		name = "A new peroid begins."
+		 swap_ideas = {
+          remove_idea = BAY_Levine_for_tot
+          add_idea = BAY_Stenzer_for_tot
+         } 
+	       
+        }
+
+	}
+
+	country_event = {
+	id = bavaria.18
+	title = bavaria.18.t
+	desc = bavaria.18.d
+	picture = GFX_report_event_oktoberfest
+    is_triggered_only = yes
+	trigger = {
+	}
+	    
+        
+
+
+	immediate = {}
+
+	option = {
+		name = "A new peroid begins."
+		set_country_flag = communists
+        }
+
+	option = {
+		name = "A new peroid begins."
+		set_country_flag = democracy
+        }
+
+	}
+
+	
+   	
+
+
+
+   
